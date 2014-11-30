@@ -1,8 +1,13 @@
 package com.baldurtech.idCard;
 
 import java.util.Date;
+import javax.persistence.*;
 
+@Entity
+@Table(name="idCard")
 public class IdCard {
+    @Id
+    @GeneratedValue
     private String name;
     private String gender;
     private String nation;

@@ -21,14 +21,7 @@ public class IdCardController {
     
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(@ModelAttribute("idCard") IdCard idCard, BindingResult bindingResult, Model model) {
-        System.out.println(idCard.getName());
-        System.out.println(idCard.getGender());
-        System.out.println(idCard.getBirthday());
-        System.out.println(idCard.getNation());
-        System.out.println(idCard.getImage());
         
-        String str = new String(idCard.getImage());
-        System.out.println(str);
         
         return "idCard/success";
     }
