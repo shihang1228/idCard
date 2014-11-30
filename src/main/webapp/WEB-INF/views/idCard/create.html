@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title></title>
+    </head>
+    <body>
+        <h1 align="center">create IdCard</h1>
+        <form action="" th:action="@{save}" method="POST">
+            <table align="center">
+                <tr>
+                    <td>name</td>
+                    <td><input type="text" name="name"/></td>
+                </tr>
+                <tr>
+                    <td>gender</td>
+                    <td>
+                        <input type="radio" name="gender" value="male"/>Male
+                        <input type="radio" name="gender" value="female"/>Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>nation</td>
+                    <td><input type="text" name="nation"/></td>
+                </tr>
+                <tr>
+                    <td>card</td>
+                    <td><input type="text" name="card"/></td>
+                </tr>
+                <tr>
+                    <td>birthday</td>
+                    <td><input type="date" name="birthday"/></td>
+                </tr>
+                <tr>
+                    <td>image</td>
+                    <td><input type="file" name="image"/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="action"/></td>
+                </tr>
+            </table>
+        
+        </form>
+    </body>
+</html>
