@@ -1,6 +1,5 @@
 package com.baldurtech.idCard;
 
-import java.util.Date;
 import javax.persistence.*;
 
 @Entity
@@ -8,13 +7,20 @@ import javax.persistence.*;
 public class IdCard {
     @Id
     @GeneratedValue
+    Long id;
+    private String card;
     private String name;
     private String gender;
     private String nation;
-    private Date birthday;
+    private String birthday;
     private byte[] image;
-    private String card;
     
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
@@ -33,10 +39,10 @@ public class IdCard {
     public void setNation(String nation) {
         this.nation = nation;
     }
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
     public byte[] getImage() {
