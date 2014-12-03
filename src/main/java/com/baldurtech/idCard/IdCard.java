@@ -17,7 +17,7 @@ public class IdCard {
     
     @Column(name="content")
     @Lob
-    private Blob content;
+    private byte[] content;
      
     @Column(name="content_type")
     private String contentType;
@@ -59,10 +59,10 @@ public class IdCard {
         this.card = card;
     }
     
-    public Blob getContent() {
+    public byte[] getContent() {
         return content;
     }
-    public void setContent(Blob content) {
+    public void setContent(byte[] content) {
         this.content = content;
     }
     
@@ -72,6 +72,5 @@ public class IdCard {
     public void setContentType(String contentType) {
         this.contentType = contentType;
     }
-    
-    
+
 }

@@ -1,5 +1,8 @@
 package com.baldurtech.idCard;
 
+import java.sql.Blob;
+import java.io.IOException;
+
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,10 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.validation.BindingResult;
-
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 
 @Controller
 @RequestMapping("idCard")
@@ -34,16 +33,21 @@ public class IdController {
     
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(@ModelAttribute("idCard") IdCard idCard,  
-                       @RequestParam("image") MultipartFile file) {   
-        
-        System.out.println("Name:" + idCard.getName());
-        System.out.println("Gender:" + idCard.getGender());
-        System.out.println("Nation:" + idCard.getNation());
-        System.out.println("Card:" + idCard.getCard());
-        System.out.println("ContentType:" + file.getContentType());
-        
-        return "idCard/success";
+                       @RequestParam("image") MultipartFile file) {
+        try {
+            idCard.setContent(file.getBytes());
+            idCard.setContentType(file.getContentType());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        try {
+            idService.save(idCard);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        return "idCard/success";
     }
     
 }
