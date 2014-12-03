@@ -14,6 +14,10 @@ public class IdRepository {
     public void save(IdCard idCard) {
         entityManager.persist(idCard);
     }
+    
+    public IdCard getById(Long id) {
+        return entityManager.createNamedQuery(IdCard.GET_BY_ID, IdCard.class).setParameter("id", id).getSingleResult();
+    }
 
     
 }

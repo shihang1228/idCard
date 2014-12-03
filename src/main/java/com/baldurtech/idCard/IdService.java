@@ -15,4 +15,8 @@ public class IdService {
     public void save(IdCard idCard) {
         idRepository.save(idCard);
     }
+    
+    public IdCard getById(Long id) {
+        return idRepository.getById(id);
+    }
 }
