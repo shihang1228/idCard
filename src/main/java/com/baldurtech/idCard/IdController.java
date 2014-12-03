@@ -33,14 +33,16 @@ public class IdController {
     }
     
     @RequestMapping(value = "save", method = RequestMethod.POST)
-    public String save(@RequestParam("name") String name,
-                       @RequestParam("gender") String gender, 
-                       @RequestParam("card") String card, 
-                       @RequestParam("nation") String nation, 
-                       @RequestParam("birthday") String birthday, 
+    public String save(@ModelAttribute("idCard") IdCard idCard,  
                        @RequestParam("image") MultipartFile file) {   
-
-            return "idCard/success";
+        
+        System.out.println("Name:" + idCard.getName());
+        System.out.println("Gender:" + idCard.getGender());
+        System.out.println("Nation:" + idCard.getNation());
+        System.out.println("Card:" + idCard.getCard());
+        System.out.println("ContentType:" + file.getContentType());
+        
+        return "idCard/success";
 
     }
     

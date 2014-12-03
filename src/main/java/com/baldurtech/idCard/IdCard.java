@@ -1,5 +1,6 @@
 package com.baldurtech.idCard;
 
+import java.sql.Blob;
 import javax.persistence.*;
 
 @Entity
@@ -13,7 +14,13 @@ public class IdCard {
     private String gender;
     private String nation;
     private String birthday;
-    private byte[] image;
+    
+    @Column(name="content")
+    @Lob
+    private Blob content;
+     
+    @Column(name="content_type")
+    private String contentType;
     
     public Long getId() {
         return id;
@@ -45,17 +52,25 @@ public class IdCard {
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
-    public byte[] getImage() {
-        return image;
-    }
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
     public String getCard() {
         return card;
     }
     public void setCard(String card) {
         this.card = card;
+    }
+    
+    public Blob getContent() {
+        return content;
+    }
+    public void setContent(Blob content) {
+        this.content = content;
+    }
+    
+    public String getContentType() {
+        return contentType;
+    }
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
     
     
