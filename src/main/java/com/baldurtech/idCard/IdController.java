@@ -6,9 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.validation.BindingResult;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 
 @Controller
 @RequestMapping("idCard")
@@ -27,9 +33,15 @@ public class IdController {
     }
     
     @RequestMapping(value = "save", method = RequestMethod.POST)
-    public String save(@ModelAttribute("idCard") IdCard idCard, BindingResult bindingResult, Model model) {   
-        idService.save(idCard);
-        model.addAttribute("idCard", idCard);
-        return "idCard/success";
+    public String save(@RequestParam("name") String name,
+                       @RequestParam("gender") String gender, 
+                       @RequestParam("card") String card, 
+                       @RequestParam("nation") String nation, 
+                       @RequestParam("birthday") String birthday, 
+                       @RequestParam("image") MultipartFile file) {   
+
+            return "idCard/success";
+
     }
+    
 }

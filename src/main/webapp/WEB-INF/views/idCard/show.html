@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>show</title>
+    </head>
+    <body>
+        <h1 align="center">idCard show</h1>
+        <table border="1" align="center">
+            <tr>
+                <td>name</td>
+                <td th:text="${idCard.name}"></td>
+            </tr>
+            <tr>
+                <td>card</td>
+                <td th:text="${idCard.card}"></td>
+            </tr>
+            <tr>
+                <td>gender</td>
+                <td th:text="${idCard.gender}"></td>
+            </tr>
+            <tr>
+                <td>nation</td>
+                <td th:text="${idCard.nation}"></td>
+            </tr>
+            <tr>
+                <td>birthday</td>
+                <td th:text="${idCard.birthday}"></td>
+            </tr>
+            <tr>
+                <td>image</td>
+                <td><img th:src="${image}" /></td>
+            </tr>
+            
+        </table>
+    </body>
+</html>
